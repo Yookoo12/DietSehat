@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Diet Sehat</title>
+    
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1490645935967-10de6ba17061');
+            background-size: cover;
+            height: 60vh;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg" style="background-color: #00FFFF;">
+        <div class="container">
+            <a class="navbar-brand" href="#">DietSehat</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#evaluasi">Evaluasi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#visualisasi">Progres</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#audio">Panduan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#agent">Agent</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1>Program Diet Sehat</h1>
+            <p class="lead">Capai berat badan ideal dengan cara yang sehat dan berkelanjutan</p>
+        </div>
+    </div>
+
+    <!-- Evaluasi Section -->
+    <section id="evaluasi" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Evaluasi Diet</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <form id="bmiForm">
+                        <div class="mb-3">
+                            <label class="form-label">Berat Badan (kg)</label>
+                            <input type="number" class="form-control" id="beratBadan">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Tinggi Badan (cm)</label>
+                            <input type="number" class="form-control" id="tinggiBadan">
+                        </div>
+                        <button type="button" class="btn btn-primary" id="hitungBmiBtn">Hitung BMI</button>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <div id="bmiResult" class="p-3 border rounded">
+                        Hasil perhitungan BMI akan muncul di sini
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visualisasi Section -->
+    <section id="visualisasi" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">Progres Diet</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <canvas id="progressChart"></canvas>
+                    <div class="mt-3">
+                        <label for="beratData">Data Berat Badan (kg):</label>
+                        <input type="text" id="beratData" class="form-control" placeholder="Contoh: 75, 73, 72, 70, 69, 68">
+                        <button class="btn btn-primary mt-2" id="updateBeratBtn">Perbarui Grafik Berat</button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <canvas id="nutrisiChart"></canvas>
+                    <div class="mt-3">
+                        <label for="nutrisiData">Data Nutrisi (Protein, Karbohidrat, Lemak):</label>
+                        <input type="text" id="nutrisiData" class="form-control" placeholder="Contoh: 30, 50, 20">
+                        <button class="btn btn-primary mt-2" id="updateNutrisiBtn">Perbarui Grafik Nutrisi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audio Section -->
+    <section id="audio" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Audio Panduan</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Meditasi Diet</h5>
+                            <audio controls autoplay>
+                                <source src="Short Meditation Music - 3 Minute Relaxation, Calming.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Tips Diet</h5>
+                            <audio controls loop>
+                                <source src="CARA SEHAT MENURUNKAN BERAT BADAN DALAM 1 MINGGU.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Motivasi</h5>
+                            <audio controls>
+                                <source src="Motivasi Diet - Tips Menurunkan Berat Badan yang Benar.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agent Section -->
+    <section id="agent" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">Diet Assistant</h2>
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="chat-container" id="chatContainer" style="height: 300px; overflow-y: auto; border: 1px solid #ccc; padding: 10px;">
+                                <!-- Chat messages will appear here -->
+                            </div>
+                            <div class="input-group mt-3">
+                                <input type="text" class="form-control" id="userInput" placeholder="Tanya seputar diet...">
+                                <button class="btn btn-primary" id="sendBtn">Kirim</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rekomendasi Makanan Sehat Section -->
+    <section id="rekomendasi" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Rekomendasi Makanan Sehat</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="download.jpeg" class="card-img-top" alt="Salad Buah">
+                        <div class="card-body">
+                            <h5 class="card-title">Salad Buah</h5>
+                            <p class="card-text">Campuran buah segar yang kaya akan vitamin dan serat.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="smoothie.jpeg" class="card-img-top" alt="Smoothie Hijau">
+                        <div class="card-body">
+                            <h5 class="card-title">Smoothie Hijau</h5>
+                            <p class="card-text">Minuman sehat yang terbuat dari sayuran hijau dan buah-buahan.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="oatmeal.jpeg" class="card-img-top" alt="Oatmeal">
+                        <div class="card-body">
+                            <h5 class="card-title">Oatmeal</h5>
+                            <p class="card-text">Sarapan bergizi tinggi yang baik untuk kesehatan jantung.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2023 DietSehat. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Progress Chart
+        const progressCtx = document.getElementById('progressChart').getContext('2d');
+        const progressChart = new Chart(progressCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun'],
+                datasets: [{
+                    label: 'Berat Badan (kg)',
+                    data: [75, 73, 72, 70, 69, 68],
+                    borderColor: 'rgb(75, 192, 192)',
+                }]
+            }
+        });
+
+        // Nutrisi Chart
+        const nutrisiCtx = document.getElementById('nutrisiChart').getContext('2d');
+        const nutrisiChart = new Chart(nutrisiCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Protein', 'Karbohidrat', 'Lemak'],
+                datasets: [{
+                    data: [30, 50, 20],
+                    backgroundColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(54, 162, 235)',
+                        'rgb(255, 205, 86)'
+                    ]
+                }]
+            }
+        });
+
+        // Update Progress Chart
+        document.getElementById('updateBeratBtn').addEventListener('click', function() {
+            const beratData = document.getElementById('beratData').value.split(',').map(Number);
+            if (beratData.every(num => !isNaN(num))) {
+                progressChart.data.datasets[0].data = beratData;
+                progressChart.update();
+            } else {
+                alert('Masukkan data berat badan yang valid.');
+            }
+        });
+
+        // Update Nutrisi Chart
+        document.getElementById('updateNutrisiBtn').addEventListener('click', function() {
+            const nutrisiData = document.getElementById('nutrisiData').value.split(',').map(Number);
+            if (nutrisiData.length === 3 && nutrisiData.every(num => !isNaN(num))) {
+                nutrisiChart.data.datasets[0].data = nutrisiData;
+                nutrisiChart.update();
+            } else {
+                alert('Masukkan data nutrisi yang valid.');
+            }
+        });
+
+        // BMI Calculation
+        document.getElementById('hitungBmiBtn').addEventListener('click', function() {
+            const berat = parseFloat(document.getElementById('beratBadan').value);
+            const tinggi = parseFloat(document.getElementById('tinggiBadan').value) / 100; // convert cm to meters
+
+            if (berat > 0 && tinggi > 0) {
+                const bmi = berat / (tinggi * tinggi);
+                document.getElementById('bmiResult').innerText = `BMI Anda adalah ${bmi.toFixed(2)}`;
+            } else {
+                document.getElementById('bmiResult').innerText = 'Masukkan berat dan tinggi badan yang valid.';
+            }
+        });
+
+        // Chatbot Functionality
+        document.getElementById('sendBtn').addEventListener('click', function() {
+            const userInput = document.getElementById('userInput').value;
+            if (userInput.trim() !== '') {
+                addMessageToChat('Anda', userInput);
+                document.getElementById('userInput').value = '';
+
+                // Simulate agent response
+                setTimeout(() => {
+                    const response = getAgentResponse(userInput);
+                    addMessageToChat('Agent', response);
+                }, 1000);
+            }
+        });
+
+        function getAgentResponse(userInput) {
+            const lowerCaseInput = userInput.toLowerCase();
+
+            if (lowerCaseInput.includes('tips') || lowerCaseInput.includes('saran')) {
+                return 'Pastikan untuk minum banyak air dan makan sayuran. Jaga pola makan seimbang dan hindari makanan olahan.';
+            } else if (lowerCaseInput.includes('olahraga') || lowerCaseInput.includes('latihan')) {
+                return 'Cobalah berjalan kaki selama 30 menit setiap hari. Tambahkan latihan kekuatan dua kali seminggu untuk hasil yang lebih baik.';
+            } else if (lowerCaseInput.includes('kalori') || lowerCaseInput.includes('energi')) {
+                return 'Untuk menurunkan berat badan, kurangi asupan kalori harian Anda. Fokus pada makanan rendah kalori yang tinggi nutrisi.';
+            } else if (lowerCaseInput.includes('protein') || lowerCaseInput.includes('otot')) {
+                return 'Protein penting untuk membangun otot. Konsumsi lebih banyak daging tanpa lemak, ikan, atau kacang-kacangan. Pertimbangkan protein shake jika diperlukan.';
+            } else if (lowerCaseInput.includes('karbohidrat') || lowerCaseInput.includes('karbo')) {
+                return 'Karbohidrat adalah sumber energi utama. Pilih karbohidrat kompleks seperti gandum utuh dan sayuran. Batasi gula dan karbohidrat olahan.';
+            } else if (lowerCaseInput.includes('lemak') || lowerCaseInput.includes('fat')) {
+                return 'Lemak sehat seperti yang ditemukan dalam alpukat dan kacang-kacangan baik untuk kesehatan jantung. Hindari lemak trans dan lemak jenuh berlebih.';
+            } else if (lowerCaseInput.includes('hidrasi') || lowerCaseInput.includes('minum')) {
+                return 'Pastikan Anda minum setidaknya 8 gelas air setiap hari untuk menjaga hidrasi. Tambahkan irisan lemon untuk rasa dan manfaat tambahan.';
+            } else if (lowerCaseInput.includes('tidur') || lowerCaseInput.includes('istirahat')) {
+                return 'Tidur yang cukup penting untuk pemulihan tubuh. Usahakan tidur 7-9 jam per malam. Ciptakan rutinitas tidur yang konsisten.';
+            } else if (lowerCaseInput.includes('motivasi') || lowerCaseInput.includes('semangat')) {
+                return 'Tetap semangat! Ingatlah tujuan Anda dan terus berusaha. Buatlah jurnal untuk melacak kemajuan dan motivasi Anda.';
+            } else if (lowerCaseInput.includes('stres') || lowerCaseInput.includes('tekanan')) {
+                return 'Kelola stres dengan meditasi, yoga, atau aktivitas yang Anda nikmati. Jangan ragu untuk mencari dukungan dari teman atau profesional.';
+            } else if (lowerCaseInput.includes('makan') || lowerCaseInput.includes('diet')) {
+                return 'Makanlah dalam porsi kecil dan sering untuk menjaga metabolisme. Hindari makan larut malam dan fokus pada makanan segar.';
+            } else if (lowerCaseInput.includes('mental') || lowerCaseInput.includes('pikiran')) {
+                return 'Kesehatan mental sama pentingnya dengan kesehatan fisik. Luangkan waktu untuk diri sendiri dan lakukan aktivitas yang membuat Anda bahagia.';
+            } else {
+                return 'Maaf, saya tidak mengerti pertanyaan Anda. Coba tanyakan tentang tips, olahraga, kalori, protein, karbohidrat, lemak, hidrasi, tidur, motivasi, stres, kebiasaan makan, atau kesehatan mental.';
+            }
+        }
+
+        function addMessageToChat(sender, message) {
+            const chatContainer = document.getElementById('chatContainer');
+            const messageElement = document.createElement('div');
+            messageElement.innerHTML = `<strong>${sender}:</strong> ${message}`;
+            chatContainer.appendChild(messageElement);
+            chatContainer.scrollTop = chatContainer.scrollHeight; // Scroll to the bottom
+        }
+    </script>
+</body>
+</html>
